@@ -32,7 +32,7 @@ class UserResource extends Resource
 
     protected static function getNavigationLabel(): string
     {
-        return trans('filament-users-managements-management::user.resource.label.plural');
+        return trans('filament-users-management::user.resource.label.plural');
     }
 
     protected function getTitle(): string
