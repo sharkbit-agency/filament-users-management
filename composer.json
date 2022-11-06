@@ -1,0 +1,42 @@
+{
+  "name": "sharkbit-agency/filament-users-management",
+  "description": "Users management resource for Filament admin",
+  "keywords": [
+    "laravel",
+    "filament",
+    "users management",
+    "resource"
+  ],
+  "homepage": "https://sharkbit.agency",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "sharkBitAgency\\FilamentUsersManagement\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Sharkbit Agency",
+      "email": "info@sharkbit.agency",
+      "role": "CEO"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^8.0",
+    "bezhansalleh/filament-shield": "^2.1",
+    "filament/filament": "^2.9",
+    "spatie/laravel-package-tools": "^1.12"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "FilamentUsersManagementProvider"
+      ]
+    }
+  },
+  "prefer-stable": true
+}
