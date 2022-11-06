@@ -10,7 +10,7 @@ use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Illuminate\Support\Facades\Hash;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Columns\TagsColumn;
+use Filament\Tables\Columns\TagsColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
