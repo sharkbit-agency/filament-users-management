@@ -11,7 +11,7 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "sharkBitAgency\\FilamentUsersManagement\\": "src/"
+      "sharkBitAgency\\FilamentUsersManagement\\": "src"
     }
   },
   "authors": [
@@ -34,7 +34,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "FilamentUsersManagementProvider"
+        "sharkBitAgency\\FilamentUsersManagement\\FilamentUsersManagementProvider"
       ]
     }
   },
