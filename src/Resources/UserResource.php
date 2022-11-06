@@ -54,9 +54,9 @@ class UserResource extends Resource
         return config('filament-users-management.navigation_sort');
     }
 
-    public static function getSlug(): ?string
+    public static function getSlug(): string
     {
-        return (string)config('filament-users-management.slug');
+        return (string)config('filament-users-management.slug') ?? "users";
     }
 
     public static function form(Form $form): Form
@@ -68,7 +68,7 @@ class UserResource extends Resource
                     ->label(trans('filament-users-management::user.resource.name')),
                 TextInput::make('email')
                     ->email()
-                    ->unique()
+                    ->unique(table: User::class, ignorable: fn(?User $record): ?User => $record)
                     ->required()
                     ->label(trans('filament-users-management::user.resource.email')),
                 TextInput::make('password')->label(trans('filament-users-management::user.resource.password'))
