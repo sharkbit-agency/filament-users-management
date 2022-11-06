@@ -12,10 +12,8 @@ class EditUser extends EditRecord
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
-        $user = User::where('email', $data['email'])->first();
-        if ($user)
-            if (empty($data['password']))
-                $data['password'] = $user->password;
+        if (empty($data['password']))
+            unset($data['password']);
 
         return $data;
     }

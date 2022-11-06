@@ -10,6 +10,7 @@ use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Illuminate\Support\Facades\Hash;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Columns\TagsColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
@@ -22,8 +23,6 @@ class UserResource extends Resource
     protected static ?string $recordTitleAttribute = 'name';
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
-
-    protected static ?int $navigationSort = 0;
 
     protected static function getNavigationGroup(): ?string
     {
@@ -55,7 +54,7 @@ class UserResource extends Resource
         return config('filament-users-management.navigation_sort');
     }
 
-    public static function getSlug(): string
+    public static function getSlug(): ?string
     {
         return (string)config('filament-users-management.slug');
     }
@@ -91,11 +90,9 @@ class UserResource extends Resource
                 TextColumn::make('id')->sortable()->label(trans('filament-users-management::user.resource.id')),
                 TextColumn::make('name')->sortable()->searchable()->label(trans('filament-users-management::user.resource.name')),
                 TextColumn::make('email')->sortable()->searchable()->label(trans('filament-users-management::user.resource.email')),
-                TextColumn::make('created_at')->label(trans('filament-users-management::user.resource.created_at'))
-                    ->dateTime('M j, Y')->sortable(),
-                TextColumn::make('updated_at')->label(trans('filament-users-management::user.resource.updated_at'))
-                    ->dateTime('M j, Y')->sortable(),
-
+                TagsColumn::make('roles.name')->label(trans('filament-users-management::user.resource.roles')),
+                TextColumn::make('created_at')->label(trans('filament-users-management::user.resource.created_at'))->dateTime('M j, Y')->sortable(),
+                TextColumn::make('updated_at')->label(trans('filament-users-management::user.resource.updated_at'))->dateTime('M j, Y')->sortable(),
             ])
             ->prependActions([
                 //
