@@ -11,6 +11,7 @@ use Filament\Resources\Resource;
 use Illuminate\Support\Facades\Hash;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\TagsColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
@@ -56,7 +57,7 @@ class UserResource extends Resource
 
     public static function getSlug(): string
     {
-        return (string)config('filament-users-management.slug') ?? "users";
+        return (string)config('filament-users-management.slug');
     }
 
     public static function form(Form $form): Form
@@ -98,7 +99,7 @@ class UserResource extends Resource
                 //
             ])
             ->filters([
-                //
+                SelectFilter::make('roles')->relationship('roles', 'name')
             ]);
     }
 
